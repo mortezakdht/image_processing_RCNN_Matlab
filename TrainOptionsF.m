@@ -1,0 +1,13 @@
+function [options] = TrainOptionsF(InitialLearnRate, ...
+            MaxEpochs,MiniBatchSize,Shuffle)
+options = trainingOptions('sgdm', ...  %"sgdm" "rmsprop" "adam"
+      'InitialLearnRate', InitialLearnRate ,...
+      'LearnRateSchedule', 'piecewise' ,... % 'none' 'piecewise'
+      'LearnRateDropFactor', 0.2000 ,... %if 'piecewise' is avtive
+      'LearnRateDropPeriod', 5 ,...      %if 'piecewise' is avtive
+      'MaxEpochs', MaxEpochs ,...
+      'MiniBatchSize', MiniBatchSize ,...
+      'Verbose', 1 ,...    %Indicator to display training progress
+      'VerboseFrequency' , 50 ,... %if 'Verbose' is avtive
+      'Shuffle', Shuffle ,...  %Option for data shuffling
+      'Plots', 'training-progress' );
